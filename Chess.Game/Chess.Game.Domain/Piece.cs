@@ -6,4 +6,7 @@ public record Piece(string Type, string Color, Position Position)
     {
         return new Piece(Type, Color, pos);
     }
+
+    public bool IsAt(Position position) =>
+        Position.Equals(position);
 }

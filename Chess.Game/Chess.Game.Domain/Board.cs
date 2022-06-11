@@ -19,12 +19,12 @@
 
         private bool TryFindPiece(Position position, out Piece piece)
         {
-            if (!_pieces.Any(p => p.Position.Equals(position)))
+            if (!_pieces.Any(p => p.IsAt(position)))
             {
                 piece = default(Piece);
                 return false;
             }
-            piece = _pieces.First(p => p.Position.Equals(position));
+            piece = _pieces.First(p => p.IsAt(position));
             return true;
         }
     }
