@@ -17,5 +17,14 @@ namespace Chess.Game.Test
         {
             Assert.Null(_board.Move("B",4,"B",5)) ;
         }
+
+        [Fact]
+        public void Move_Piece()
+        {
+            var (endColumn, endRow) = ("A", 3);
+            var piece = _board.Move("A", 2, endColumn, endRow);
+            Assert.Equal(endColumn, piece.Column);
+            Assert.Equal(endRow, piece.Row);
+        }
     }
 }
