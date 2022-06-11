@@ -15,7 +15,7 @@ namespace Chess.Game.Test
         [Fact]
         public void No_Move_When_Square_Empty()
         {
-            Assert.Null(_board.Move(new Position("B",4), new Position("B",5)));
+            Assert.Equal(new EmptyPiece(), _board.Move(new Position("B",4), new Position("B",5)));
         }
 
         [Fact]

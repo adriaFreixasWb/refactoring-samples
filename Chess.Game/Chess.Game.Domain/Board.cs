@@ -10,7 +10,7 @@
         {
             if (!_pieces.Any(p => p.IsAt(start)))
             {
-                return default(Piece);
+                return new EmptyPiece();
             }
             var piece = _pieces.First(p => p.IsAt(start));
                 _pieces.Remove(piece);
