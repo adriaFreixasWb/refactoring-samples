@@ -8,24 +8,14 @@
         };
         public Piece Move(Position start, Position end)
         {
-            if (TryFindPiece(start, out Piece piece))
+            if (!_pieces.Any(p => p.IsAt(start)))
             {
+                return default(Piece);
+            }
+            var piece = _pieces.First(p => p.IsAt(start));
                 _pieces.Remove(piece);
                 _pieces.Add(piece.Move(end));
                 return _pieces.Last();
-            }
-            return piece;
-        }
-
-        private bool TryFindPiece(Position position, out Piece piece)
-        {
-            if (!_pieces.Any(p => p.IsAt(position)))
-            {
-                piece = default(Piece);
-                return false;
-            }
-            piece = _pieces.First(p => p.IsAt(position));
-            return true;
         }
     }
 }
