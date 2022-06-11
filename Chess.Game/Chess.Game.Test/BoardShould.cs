@@ -15,16 +15,15 @@ namespace Chess.Game.Test
         [Fact]
         public void No_Move_When_Square_Empty()
         {
-            Assert.Null(_board.Move("B",4,"B",5)) ;
+            Assert.Null(_board.Move(new Position("B",4), new Position("B",5)));
         }
 
         [Fact]
         public void Move_Piece()
         {
-            var (endColumn, endRow) = ("A", 3);
-            var piece = _board.Move("A", 2, endColumn, endRow);
-            Assert.Equal(endColumn, piece.Column);
-            Assert.Equal(endRow, piece.Row);
+            var endPos = new Position("A", 3);
+            var piece = _board.Move(new Position("A", 2), endPos);
+            Assert.Equal(endPos, piece.Position);
         }
     }
 }

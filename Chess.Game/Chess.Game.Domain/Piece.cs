@@ -1,10 +1,9 @@
-﻿namespace Chess.Game.Domain
+﻿namespace Chess.Game.Domain;
+
+public record Piece(string Type, string Color, Position Position)
 {
-    public record Piece(string Type, string Color, string Column, int Row)
+    public Piece Move(Position pos)
     {
-        public Piece Move(string column, int row)
-        {
-            return new Piece(Type, Color, column, row);
-        }
+        return new Piece(Type, Color, pos);
     }
 }

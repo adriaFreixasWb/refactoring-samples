@@ -4,27 +4,27 @@
     {
         private readonly List<Piece> _pieces = new List<Piece>
         {
-            new Piece("Pawn","White","A",2)
+            new Piece("Pawn","White", new Position("A",2))
         };
-        public Piece Move(string startColumn, int startRow, string endColumn, int endRow)
+        public Piece Move(Position start, Position end)
         {
-            if(TryFindPiece(startColumn, startRow, out Piece piece))
+            if (TryFindPiece(start, out Piece piece))
             {
                 _pieces.Remove(piece);
-                _pieces.Add(piece.Move(endColumn, endRow));
+                _pieces.Add(piece.Move(end));
                 return _pieces.Last();
             }
             return piece;
         }
 
-        private bool TryFindPiece(string startColumn, int startRow, out Piece piece)
+        private bool TryFindPiece(Position position, out Piece piece)
         {
-            if(!_pieces.Any(p=>p.Column == startColumn && p.Row == startRow))
+            if (!_pieces.Any(p => p.Position.Equals(position)))
             {
                 piece = default(Piece);
                 return false;
             }
-            piece = _pieces.First(p => p.Column == startColumn && p.Row == startRow);
+            piece = _pieces.First(p => p.Position.Equals(position));
             return true;
         }
     }
