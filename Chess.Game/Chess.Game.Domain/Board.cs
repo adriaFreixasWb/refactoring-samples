@@ -25,7 +25,7 @@
                 return false;
             }
             piece = _pieces.First(p => p.Column == startColumn && p.Row == startRow);
-            return false;
+            return true;
         }
     }
 }
