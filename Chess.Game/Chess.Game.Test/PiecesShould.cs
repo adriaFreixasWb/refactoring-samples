@@ -30,17 +30,7 @@ namespace Chess.Game.Test
             Assert.Equal(endPos, result.Position);
         }
 
-        [Theory]
-        [InlineData("White", "A2", "B2")]
-        [InlineData("White", "B2", "A2")]
-        [InlineData("Black", "A2", "B2")]
-        [InlineData("Black", "B2", "A2")]
-        public void Can_Not_Move_Pawn_Side_Ways(string color, string start, string end)
-        {
-            var piece = new Piece(PieceType.Pawn, Enum.Parse<Color>(color), start.ToPosition());
-            var endPos = end.ToPosition();
-            Assert.Equal(Piece.Empty, piece.Move(endPos));
-        }
+        
 
     }
 }
