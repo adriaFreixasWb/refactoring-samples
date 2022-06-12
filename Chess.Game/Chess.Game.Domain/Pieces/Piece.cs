@@ -3,7 +3,7 @@
 public record Piece(PieceType Type, Color Color, Position Position)
 {
     public static EmptyPiece Empty { get; } = new EmptyPiece();
-    public Piece Move(Position pos)
+    public virtual Piece Move(Position pos)
     {
         if (!CanMove(pos))
         {
@@ -14,17 +14,6 @@ public record Piece(PieceType Type, Color Color, Position Position)
 
     private bool CanMove(Position pos)
     {
-        if(Type == PieceType.Pawn)
-        {
-            if(Color == Color.White)
-            {
-                return Position.IsInFrontOf(pos) && Position.DeltaRow(pos.Row) == 1;
-            }
-            else
-            {
-                return Position.IsBehind(pos) && Position.DeltaRow(pos.Row) == -1; 
-            }
-        }
         if(Type == PieceType.King)
         {
             var (deltaRow, deltaCol) = (
