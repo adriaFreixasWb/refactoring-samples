@@ -25,6 +25,13 @@ public record Piece(PieceType Type, Color Color, Position Position)
                 return Position.IsBehind(pos) && Position.DeltaRow(pos.Row) == -1; 
             }
         }
+        if(Type == PieceType.King)
+        {
+            var (deltaRow, deltaCol) = (
+                Math.Abs(Position.DeltaRow(pos.Row)),
+                Math.Abs(Position.DeltaColumn(pos.Column)));
+            return Math.Max(deltaRow, deltaCol) == 1;
+        }
         return false;
     }
 

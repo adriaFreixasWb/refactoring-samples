@@ -2,7 +2,6 @@ using Chess.Game.Domain;
 using Chess.Game.Domain.Boards;
 using Chess.Game.Domain.Pieces;
 using System;
-using System.Linq;
 using Xunit;
 
 namespace Chess.Game.Test
@@ -37,7 +36,11 @@ namespace Chess.Game.Test
         }
 
         [Theory]
-        [InlineData("E1","C1")]
+        [InlineData("E1","D1")]
+        [InlineData("E1", "D2")]
+        [InlineData("E1", "E2")]
+        [InlineData("E1", "F2")]
+        [InlineData("E1", "F1")]
 
         public void Can_Move_King_Side_Ways(string start, string end)
         {

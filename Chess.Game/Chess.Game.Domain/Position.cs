@@ -11,4 +11,7 @@ public record Position(Column Column, int Row)
 
     public int DeltaRow(int otherRow) =>
         otherRow - Row;
+
+    public int DeltaColumn(Column otherColumn) =>
+        otherColumn - Column;
 }
