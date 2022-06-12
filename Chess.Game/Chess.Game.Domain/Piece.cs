@@ -2,6 +2,9 @@
 
 public record Piece(string Type, string Color, Position Position)
 {
+    public const string PAWN = "Pawn";
+    public const string WHITE = "White";
+
     public Piece Move(Position pos)
     {
         return new Piece(Type, Color, pos);

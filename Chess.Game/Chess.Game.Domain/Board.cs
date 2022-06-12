@@ -4,7 +4,7 @@
     {
         private readonly List<Piece> _pieces = new List<Piece>
         {
-            new Piece("Pawn","White", new Position("A",2))
+            new Piece(Piece.PAWN, Piece.WHITE, new Position("A",2))
         };
         public Piece Move(Position start, Position end)
         {
