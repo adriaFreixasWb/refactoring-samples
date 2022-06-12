@@ -1,6 +1,8 @@
 using Chess.Game.Domain;
 using Chess.Game.Domain.Boards;
 using Chess.Game.Domain.Pieces;
+using System;
+using System.Linq;
 using Xunit;
 
 namespace Chess.Game.Test
@@ -33,5 +35,20 @@ namespace Chess.Game.Test
         {
             Assert.Equal(new EmptyPiece(), _board.Move(new Position(Column.A, 2), new Position(Column.B, 2)));
         }
+
+        [Theory]
+        [InlineData("E1","C1")]
+
+        public void Can_Move_King_Side_Ways(string start, string end)
+        {
+            var endPos = ToPosition(end);
+            var piece = _board.Move(ToPosition(start), endPos);
+            Assert.Equal(endPos, piece.Position);
+        }
+
+        private static Position ToPosition(string pos) =>
+            new Position(Enum.Parse<Column>(
+                pos.Substring(0, 1)), 
+                int.Parse(pos.Substring(1, 1)));
     }
 }
