@@ -1,4 +1,6 @@
-﻿namespace Chess.Game.Domain
+﻿using Chess.Game.Domain.Pieces;
+
+namespace Chess.Game.Domain
 {
     public class Board
     {

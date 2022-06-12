@@ -1,4 +1,4 @@
-﻿namespace Chess.Game.Domain;
+﻿namespace Chess.Game.Domain.Pieces;
 
 public record Piece(string Type, string Color, Position Position)
 {
