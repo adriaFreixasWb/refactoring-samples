@@ -1,9 +1,9 @@
-﻿namespace Chess.Game.Domain
+﻿using Chess.Game.Domain.Boards;
+namespace Chess.Game.Domain;
+
+public record EmptyPosition:Position
 {
-    public record EmptyPosition:Position
+    public EmptyPosition():base(Column.None, 0)
     {
-        public EmptyPosition():base(string.Empty, 0)
-        {
-        }
     }
 }

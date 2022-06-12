@@ -1,5 +1,5 @@
 ﻿namespace Chess.Game.Domain.Pieces;
-public enum Colors
+public enum Color
 {
     None, White, Black
 }

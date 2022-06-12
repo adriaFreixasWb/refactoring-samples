@@ -1,2 +1,4 @@
-﻿namespace Chess.Game.Domain;
-public record Position(string Column, int Row);
+﻿using Chess.Game.Domain.Boards;
+
+namespace Chess.Game.Domain;
+public record Position(Column Column, int Row);

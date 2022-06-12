@@ -1,4 +1,5 @@
-﻿using Chess.Game.Domain.Pieces;
+﻿using Chess.Game.Domain.Boards;
+using Chess.Game.Domain.Pieces;
 
 namespace Chess.Game.Domain
 {
@@ -6,7 +7,10 @@ namespace Chess.Game.Domain
     {
         private readonly List<Piece> _pieces = new List<Piece>
         {
-            new Piece(Piece.PAWN, Colors.White, new Position("A",2))
+            new Piece(PieceType.Pawn, Color.White, new Position(Column.A,2)),
+            new Piece(PieceType.King, Color.White, new Position(Column.E,1)),
+            new Piece(PieceType.Pawn, Color.White, new Position(Column.A,2)),
+            new Piece(PieceType.King, Color.White, new Position(Column.E,8))
         };
         public Piece Move(Position start, Position end)
         {
