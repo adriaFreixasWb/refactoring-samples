@@ -2,7 +2,7 @@
 
 public record EmptyPiece : Piece
 {
-    public EmptyPiece() : base(string.Empty, string.Empty, new EmptyPosition())
+    public EmptyPiece() : base(string.Empty, Colors.None, new EmptyPosition())
     {
     }
 }

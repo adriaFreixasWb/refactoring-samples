@@ -1,4 +1,5 @@
 using Chess.Game.Domain;
+using Chess.Game.Domain.Pieces;
 using Xunit;
 
 namespace Chess.Game.Test

@@ -1,9 +1,8 @@
 ﻿namespace Chess.Game.Domain.Pieces;
 
-public record Piece(string Type, string Color, Position Position)
+public record Piece(string Type, Colors Color, Position Position)
 {
     public const string PAWN = "Pawn";
-    public const string WHITE = "White";
 
     public Piece Move(Position pos)
     {
