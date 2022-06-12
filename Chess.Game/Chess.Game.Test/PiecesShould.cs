@@ -24,8 +24,8 @@ namespace Chess.Game.Test
 
         public void Move_On_Any_Direction_When_King(string color, string start, string end)
         {
-            var piece = new Piece(PieceType.King, Enum.Parse<Color>(color), ToPosition(start));
-            var endPos = ToPosition(end);
+            var piece = new Piece(PieceType.King, Enum.Parse<Color>(color), start.ToPosition());
+            var endPos = end.ToPosition();
             var result = piece.Move(endPos);
             Assert.Equal(endPos, result.Position);
         }
@@ -37,14 +37,10 @@ namespace Chess.Game.Test
         [InlineData("Black", "B2", "A2")]
         public void Can_Not_Move_Pawn_Side_Ways(string color, string start, string end)
         {
-            var piece = new Piece(PieceType.Pawn, Enum.Parse<Color>(color), ToPosition(start));
-            var endPos = ToPosition(end);
+            var piece = new Piece(PieceType.Pawn, Enum.Parse<Color>(color), start.ToPosition());
+            var endPos = end.ToPosition();
             Assert.Equal(Piece.Empty, piece.Move(endPos));
         }
 
-        private static Position ToPosition(string pos) =>
-            new Position(Enum.Parse<Column>(
-                pos.Substring(0, 1)),
-                int.Parse(pos.Substring(1, 1)));
     }
 }
